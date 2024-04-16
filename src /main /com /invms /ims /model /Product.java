@@ -1,5 +1,7 @@
 package com.invms.ims.model;
 
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id; 
 import org.springframework.data.mongodb.core.mapping.Document; 
   
@@ -20,8 +22,6 @@ public class Product {
     private Long quality; 
     private Long maximumProducts; 
     private Long minimumProducts; 
-    private String userName; 
-    private String emailAddress; 
-    private Long phoneNumber; 
+    private LocalDate expirationDate;
   
 } 
