@@ -16,6 +16,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.invms.ims.model.Product; 
 import com.invms.ims.service.ProductService; 
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
 @Controller
 public class ProductController { 
 
@@ -72,5 +77,16 @@ public class ProductController {
 		model.addAttribute("products", products); 
 		return "productAnalysis"; // Thymeleaf template name 
 	} 
-	
+
+	@GetMapping("/generateReport")
+	public ResponseEntity<byte[]> generateReport() {
+    	byte[] reportData = productService.generateCsvReport();
+    
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+    headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=report.csv");
+    
+    return new ResponseEntity<>(reportData, headers, HttpStatus.OK);
+}
+
 } 
