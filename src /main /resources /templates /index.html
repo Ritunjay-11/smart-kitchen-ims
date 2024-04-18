@@ -96,6 +96,10 @@
 								<a class="nav-link text-success mt-2" data-bs-toggle="pill" href="#removeProduct"><i
 										class="fa fa-trash"></i>Remove Product</a> 
 							</li> 
+							
+							<li class="nav-item p-2">
+								<a class="nav-link text-success mt-2" data-bs-toggle="pill" href="#report"><i class="fa fa-file-text"></i>Generate Report</a>
+							</li>
 
 						</ul> 
 					</div> 
@@ -404,6 +408,17 @@
 							</form> 
 						</div> 
 					</div> 
+
+					<div class="tab-pane fade" id="report">
+						<h4 class="text-success p-2">Generate Report</h4>
+						<br>
+						<div class="container p-1">
+							<form method="get" action="/generateReport">
+								<button type="submit" class="btn btn-success">Download Report</button>
+							</form>
+						</div>
+					</div>
+
 					<div class="tab-pane fade" id="removeProduct"> 
 						<h4 class="text-success p-2">Remove Existing Product</h4> 
 						<br> 
